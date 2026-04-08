@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SORA — Japan SNS Service Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:    #e02020;
+    --text:   #111111;
+    --body:   #555555;
+    --muted:  #999999;
+    --border: #e8e8e8;
+    --surf:   #f5f5f5;
+    --bg:     #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.8;
+    padding: 64px 48px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 52px;
+  }
+
+  .logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.06em;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .header-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .header-tagline {
+    font-size: 12px;
+    color: var(--body);
+    letter-spacing: 0.03em;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .header-mail {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* INTRO */
+  .intro {
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--body);
+    line-height: 1.8;
+    padding-left: 20px;
+    border-left: 2px solid var(--red);
+    margin-bottom: 56px;
+  }
+
+  /* SECTION LABEL */
+  .label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+
+  section { margin-bottom: 52px; }
+
+  .body-text {
+    font-size: 13px;
+    color: var(--body);
+    line-height: 1.9;
+  }
+
+  /* FLOW */
+  .flow { border-top: 1px solid var(--border); }
+
+  .step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step-num {
+    font-family: 'Anton', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--red);
+    padding-top: 1px;
+  }
+
+  .step-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* SCOPE */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .scope-col { background: var(--surf); padding: 24px 28px; }
+
+  .scope-col-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .scope-col:first-child .scope-col-label { color: var(--red); }
+  .scope-col:last-child  .scope-col-label { color: var(--muted); }
+
+  .scope-col ul { list-style: none; display: grid; gap: 10px; }
+
+  .scope-col ul li {
+    font-size: 12px;
+    color: var(--body);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .scope-col:first-child ul li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--red); font-size: 11px;
+  }
+
+  .scope-col:last-child ul li::before {
+    content: '×'; position: absolute; left: 0;
+    color: var(--border); font-size: 11px;
+  }
+
+  /* TRIAL */
+  .trial {
+    background: var(--red);
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 52px;
+  }
+
+  .trial-main { font-size: 13px; font-weight: 500; color: #fff; letter-spacing: 0.02em; }
+  .trial-sub  { font-size: 11px; color: rgba(255,255,255,0.65); letter-spacing: 0.04em; }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .plan { background: var(--surf); padding: 28px; }
+
+  .plan.featured {
+    background: #fff8f8;
+    border-left: 2px solid var(--red);
+  }
+
+  .plan-name {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .plan.featured .plan-name { color: var(--red); }
+
+  .plan-price {
+    font-family: 'Anton', sans-serif;
+    font-size: 36px;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .plan-sub { font-size: 11px; color: var(--muted); margin-bottom: 22px; }
+
+  .plan ul { list-style: none; display: grid; gap: 9px; }
+
+  .plan ul li {
+    font-size: 12px; color: var(--body);
+    padding-left: 16px; position: relative;
+  }
+
+  .plan ul li::before {
+    content: '—'; position: absolute; left: 0; color: var(--border);
+  }
+
+  /* NOTE */
+  .note {
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--red);
+    padding: 22px 28px;
+    font-size: 12px;
+    color: var(--body);
+    line-height: 1.9;
+  }
+
+  .note strong { color: var(--text); font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    margin-top: 52px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">SORA</div>
+  <div class="header-right">
+    <div class="header-tagline">Localize your content for Japan</div>
+    <div class="header-mail" id="hmail"></div>
+  </div>
+</header>
+
+<p class="intro">
+  We open and operate a dedicated Japanese Instagram account for your brand — using your existing content and assets, fully localized for Japanese audiences. No new shoots. No changes to your main account.
+</p>
+
+<section>
+  <div class="label">What This Is</div>
+  <p class="body-text">
+    Your brand runs one Instagram account. We run a second one — for Japan. Same visuals, same identity. We handle all Japanese copy, community management, and reporting. You review and approve before anything goes live.
+  </p>
+</section>
+
+<section>
+  <div class="label">How It Works</div>
+  <div class="flow">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-title">Account Setup</div>
+        <div class="step-desc">You create the Japanese Instagram account and own it permanently. We receive admin access to operate it on your behalf.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-title">Content Handoff</div>
+        <div class="step-desc">Before each post, you share creative assets and the original English caption via a shared folder (Dropbox or Google Drive).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-title">Localization Draft</div>
+        <div class="step-desc">We adapt the caption for Japanese audiences — culturally tuned, not word-for-word. Draft delivered within 24 hours.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-title">Your Approval</div>
+        <div class="step-desc">You review the draft. One revision round included. Once approved, we post to the Japanese account.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-title">Community Management</div>
+        <div class="step-desc">Japanese comments and DMs responded to within 24 hours, maintaining your brand tone in the local language.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">06</div>
+      <div class="step-content">
+        <div class="step-title">Monthly Report</div>
+        <div class="step-desc">Follower growth, engagement rate, and top-performing posts — delivered at month end so you can track Japan traction.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Scope</div>
+  <div class="scope-grid">
+    <div class="scope-col">
+      <div class="scope-col-label">Included</div>
+      <ul>
+        <li>Japanese account setup support</li>
+        <li>Profile + bio localization</li>
+        <li>Post caption localization (up to 8/month)</li>
+        <li>Japanese DM + comment responses</li>
+        <li>Monthly performance report</li>
+        <li>1 revision per post</li>
+      </ul>
+    </div>
+    <div class="scope-col">
+      <div class="scope-col-label">Not Included</div>
+      <ul>
+        <li>Original creative production</li>
+        <li>Paid advertising / promotions</li>
+        <li>E-commerce or sales handling</li>
+        <li>Main account management</li>
+        <li>Influencer outreach</li>
+        <li>Additional revisions beyond 1</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="trial">
+  <div class="trial-main">First 2 weeks — free.</div>
+  <div class="trial-sub">See real engagement before committing to anything.</div>
+</div>
+
+<section>
+  <div class="label">Pricing</div>
+  <div class="pricing-grid">
+    <div class="plan featured">
+      <div class="plan-name">Launch Package</div>
+      <div class="plan-price">$200</div>
+      <div class="plan-sub">one-time · setup + first 10 posts</div>
+      <ul>
+        <li>Account + profile setup</li>
+        <li>10 posts localized + posted</li>
+        <li>DM / comment management</li>
+        <li>Onboarding call</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Monthly Retainer</div>
+      <div class="plan-price">$270</div>
+      <div class="plan-sub">per month · cancel anytime</div>
+      <ul>
+        <li>Up to 8 posts/month</li>
+        <li>DM / comment management</li>
+        <li>Monthly performance report</li>
+        <li>Ongoing brand voice calibration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Account Ownership</div>
+  <div class="note">
+    <strong>You own the account. Always.</strong><br>
+    The Japanese Instagram account is created by you and remains yours throughout. We operate as an authorized admin. If you end the contract, you keep the account, the followers, and all content — no transition fees, no holdbacks.
+  </div>
+</section>
+
+<footer>
+  <span>SORA — Tokyo, Japan</span>
+  <span id="fmail"></span>
+</footer>
+
+<script>
+  // Split email to avoid Cloudflare scraping
+  const u = 'sora.localize';
+  const d = 'gmail.com';
+  const e = u + '\u0040' + d;
+  document.getElementById('hmail').textContent = 'Mail: ' + e;
+  document.getElementById('fmail').textContent = e;
+</script>
+
+</body>
+</html>
