@@ -71,9 +71,7 @@
     letter-spacing: 0.04em;
   }
 
-  .hero {
-    margin-bottom: 56px;
-  }
+  .hero { margin-bottom: 56px; }
 
   .hero-kicker {
     font-size: 10px;
@@ -239,14 +237,13 @@
     margin-top: 12px;
   }
 
-  /* Pricing */
   .pricing-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
-    margin-bottom: 12px;
+    margin-bottom: 1px;
   }
 
   .pricing-card {
@@ -254,9 +251,7 @@
     padding: 24px 28px;
   }
 
-  .pricing-card.featured {
-    background: var(--bg);
-  }
+  .pricing-card.featured { background: var(--bg); }
 
   .pricing-plan {
     font-size: 10px;
@@ -301,24 +296,46 @@
     color: var(--muted);
   }
 
-  .setup-row {
-    background: var(--surf);
+  .onetime-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
     border: 1px solid var(--border);
-    border-top: none;
-    padding: 18px 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: 12px;
   }
 
-  .setup-label {
-    font-size: 12px;
-    color: var(--body);
+  .onetime-card {
+    background: var(--bg);
+    padding: 20px 28px;
   }
 
-  .setup-price {
+  .onetime-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .onetime-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .onetime-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .onetime-price {
     font-family: 'Anton', sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     color: var(--text);
   }
 
@@ -332,9 +349,7 @@
     gap: 20px;
   }
 
-  .early-offer-left {
-    flex: 1;
-  }
+  .early-offer-left { flex: 1; }
 
   .early-offer-tag {
     font-size: 10px;
@@ -384,7 +399,6 @@
     letter-spacing: 0.02em;
   }
 
-  /* Payment */
   .payment-row {
     display: flex;
     gap: 1px;
@@ -429,9 +443,9 @@
     .hero-title { font-size: 36px; }
     .two-col { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
+    .onetime-grid { grid-template-columns: 1fr; }
     .early-offer { flex-direction: column; align-items: flex-start; }
     .payment-row { flex-direction: column; }
-    .setup-row { flex-direction: column; align-items: flex-start; gap: 4px; }
   }
 </style>
 </head>
@@ -449,7 +463,7 @@
   <div class="hero-kicker">Japan Audience</div>
   <h1 class="hero-title">You already have Japanese customers.<br>You're just not serving them yet.</h1>
   <p class="hero-sub">
-    We help global brands respond to Japanese followers, localize their Instagram communication, and handle basic customer inquiries in Japanese — using your existing content, without changing your main account.
+    We help global brands respond to Japanese followers, localize their Instagram communication, and handle customer inquiries in Japanese — using your existing content, without changing your main account.
   </p>
 </section>
 
@@ -461,14 +475,16 @@
   </p>
 </section>
 
+<!-- FIX 1: removed "ship to Japan" as hard requirement -->
 <section>
   <div class="label">Who This Is For</div>
   <p class="body-text">
-    This works best for brands that already ship to Japan, already have Japanese followers or inquiries, and currently have no Japanese captions, replies, or support flow.
-    If Japanese users are already finding you, but not being served, we can help.
+    This works best for brands that already have Japanese followers, engagement, or inquiries — and currently have no Japanese captions, replies, or support flow.
+    Whether you already ship to Japan or are still exploring the market, if Japanese users are finding you, we can help.
   </p>
 </section>
 
+<!-- FIX 2: added website localization to Included list -->
 <section>
   <div class="label">What We Do</div>
   <div class="two-col">
@@ -477,6 +493,7 @@
       <ul>
         <li>Japanese Instagram account setup support</li>
         <li>Profile and bio localization</li>
+        <li>Website localization (up to 5 pages)</li>
         <li>Japanese caption writing based on your original posts</li>
         <li>Posting to the Japanese Instagram account</li>
         <li>Japanese comment and DM responses</li>
@@ -551,6 +568,7 @@
   </div>
 </section>
 
+<!-- FIX 3: one-time options split into two separate cards -->
 <section>
   <div class="label">Pricing</div>
 
@@ -581,9 +599,19 @@
     </div>
   </div>
 
-  <div class="setup-row">
-    <div class="setup-label">One-time setup — account, bio & profile, website localization (up to 5 pages)</div>
-    <div class="setup-price">$150</div>
+  <div class="onetime-grid">
+    <div class="onetime-card">
+      <div class="onetime-label">One-time</div>
+      <div class="onetime-title">Account & Profile Setup</div>
+      <div class="onetime-desc">Instagram account setup, bio & profile localization. Required before starting monthly service.</div>
+      <div class="onetime-price">$150</div>
+    </div>
+    <div class="onetime-card">
+      <div class="onetime-label">One-time</div>
+      <div class="onetime-title">Website Localization</div>
+      <div class="onetime-desc">Japanese translation of up to 5 pages. Can be purchased standalone — no monthly plan required.</div>
+      <div class="onetime-price">$150</div>
+    </div>
   </div>
 
   <div class="early-offer">
@@ -627,7 +655,7 @@
   <div class="label">Why Brands Use This</div>
   <p class="body-text">
     Most brands do not need a full Japan launch at the beginning. They need a lightweight way to stop losing people who are already interested.
-    SORA exists for that gap: a low-cost, low-friction way to maintain communication with Japanese users before building a larger local operation.
+    SORA exists for that gap: a low-friction way to maintain communication with Japanese users before building a larger local operation.
   </p>
   <p class="micro">
     Typical handled topics: sizing, shipping, basic product questions, general inquiries, and comment management. Refunds, complaints, legal issues, and other decision-heavy matters are escalated to the brand.
